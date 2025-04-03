@@ -52,4 +52,4 @@ load = wr.s3.to_parquet(
     dataset=True,
     mode="append")
 
-logging.info("successfully writen to {load['paths']}")
+logging.info(f"successfully writen to {load['paths']}")
