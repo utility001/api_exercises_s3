@@ -53,6 +53,6 @@ load = wr.s3.to_parquet(
     path=S3_BUCKET_PATH,
     boto3_session=session,
     dataset=True,
-    mode="append",
-)
-logging.info("successfully writen to {load['paths']}")
+    mode="append")
+
+logging.info(f"successfully writen to {load['paths']}")
