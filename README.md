@@ -2,6 +2,7 @@
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 
 # API to S3 Bucket
+Push data from various data sources into s3 bucket
 
 #### Task 1:
 + Connect to this API endpoint https://jobicy.com/api/v2/remote-jobs?count=20&geo=usa&industry=marketing&tag=seo 
