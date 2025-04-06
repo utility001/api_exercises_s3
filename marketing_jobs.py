@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-S3_BUCKET_PATH = "s3://lettuceleaf/jobicyapi/marketingjobs/"
+S3_BUCKET_PATH = "s3://lettuceleaf/jobicyapi/marketing-jobs/"
 
 logging.basicConfig(
     level=logging.INFO,

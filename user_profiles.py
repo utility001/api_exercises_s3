@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-S3_BUCKET_PATH = "s3://lettuceleaf/randomuser/userprofiles/"
+S3_BUCKET_PATH = "s3://lettuceleaf/randomuser/user-profiles/"
 
 logging.basicConfig(
     level=logging.INFO,
