@@ -1,3 +1,4 @@
+import logging
 import os
 
 import awswrangler as wr
@@ -9,6 +10,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 S3_BUCKET_PATH = "s3://lettuceleaf/footballapi/competitions/"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="{asctime} - {levelname} - {message}",
+    style="{",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 URL = "http://api.football-data.org/v4/competitions/"
 response = requests.get(URL, timeout=10)
@@ -26,7 +34,7 @@ session = boto3.session.Session(
     region_name=os.getenv("REGION_NAME"),
 )
 
-w = wr.s3.to_parquet(
+load = wr.s3.to_parquet(
     df=competitions_df,
     path=S3_BUCKET_PATH,
     boto3_session=session,
@@ -34,4 +42,4 @@ w = wr.s3.to_parquet(
     mode="append",
 )
 
-print(w)
+logging.info("Successfully written to %s", load["paths"])

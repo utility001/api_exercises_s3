@@ -11,6 +11,13 @@ load_dotenv()
 
 S3_BUCKET_PATH = "s3://lettuceleaf/jobicyapi/marketingjobs/"
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="{asctime} - {levelname} - {message}",
+    style="{",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+
 
 def fetch_remote_marketing_jobs(count: int = 20):
     """
@@ -53,6 +60,7 @@ load = wr.s3.to_parquet(
     path=S3_BUCKET_PATH,
     boto3_session=session,
     dataset=True,
-    mode="append")
+    mode="append",
+)
 
-logging.info(f"successfully writen to {load['paths']}")
+logging.info("Successfully written to %s", load["paths"])
